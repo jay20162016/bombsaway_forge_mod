@@ -1,0 +1,62 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "bombsaway:grenade",
+      "bombsaway:hbomb",
+      "bombsaway:hibomb",
+      "bombsaway:pbomb",
+      "bombsaway:pibomb",
+      "bombsaway:uibomb",
+      "bombsaway:ubomb",
+      "bombsaway:lbomb",
+      "bombsaway:libomb",
+      "bombsaway:mibomb",
+      "bombsaway:mbomb",
+      "bombsaway:sibomb",
+      "bombsaway:sbomb"
+    ]
+  },
+  "criteria": {
+    "has_gunpowder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:gunpowder"
+          }
+        ]
+      }
+    },
+    "grenade": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:grenade"}},
+    "hbomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:hbomb"}},
+    "hibomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:hibomb"}},
+    "uibomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:uibomb"}},
+    "ubomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:ubomb"}},
+    "pibomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:pibomb"}},
+    "pbomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:pbomb"}},
+    "libomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:libomb"}},
+    "mibomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:mibomb"}},
+    "sibomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:sibomb"}},
+    "lbomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:lbomb"}},
+    "mbomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:mbomb"}},
+    "sbomb": {"trigger": "minecraft:recipe_unlocked","conditions": {"recipe": "bombsaway:sbomb"}}
+    
+  },
+  "requirements": [[
+      "has_gunpowder",
+      "grenade",
+      "hbomb",
+      "hibomb",
+      "pbomb",
+      "pibomb",
+      "ubomb",
+      "uibomb",
+      "lbomb",
+      "libomb",
+      "mbomb",
+      "mibomb",
+      "sbomb",
+      "sibomb"
+  ]]
+}

@@ -1,0 +1,23 @@
+{
+	"item.bombsaway.hibomb": "Hydrogen Incidnary Bomb",
+	"item.bombsaway.pibomb": "Plutonium Incidnary Bomb",
+	"item.bombsaway.uibomb": "Uranium Incidnary Bomb",
+	"item.bombsaway.hbomb": "Hydrogen Bomb",
+	"item.bombsaway.pbomb": "Plutonium Bomb",
+	"item.bombsaway.ubomb": "Uranium Bomb",
+	"item.bombsaway.libomb": "Large Incidnary Bomb",
+	"item.bombsaway.mibomb": "Medium Incidnary Bomb",
+	"item.bombsaway.sibomb": "Small Incidnary Bomb",
+	"item.bombsaway.lbomb": "Large Bomb",
+	"item.bombsaway.mbomb": "Medium Bomb",
+	"item.bombsaway.sbomb": "Small Bomb",
+	"item.bombsaway.grenade": "Grenade",
+	
+	"itemGroup.bomb": "Bombs",
+	
+    "death.attack.radioactivity": "%1$s died of radioactivity",
+    "death.attack.radioactivity.player": "%1$s died of radioactivity while fighting %2$s",
+    
+	"effect.bombsaway.radiation": "Radiation",
+	"effect.bombsaway.radiation_sick": "Radiation Sickness"
+}
