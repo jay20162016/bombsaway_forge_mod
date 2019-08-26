@@ -1,0 +1,41 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "sss",
+        "ggg",
+        "iii"
+    ],
+    "key":
+    {
+    	"s":
+    	{
+    		"tag": "forge:ingot/iron"
+    	},
+        "h":
+        {
+            "tag": "forge:tank/hydrogen"
+        },
+        "u":
+        {
+            "tag": "forge:ingot/uranium"
+        },
+        "p":
+        {
+            "tag": "forge:ingot/plutonium"
+        },
+        "i":
+        {
+            "item": "minecraft:coal"
+        },
+        "g":
+        {
+        	"item" : "minecraft:gunpowder"
+        }
+    },
+    "result":
+    {
+        "item": "mymod:hibomb",
+        "count": 1
+    }
+}
