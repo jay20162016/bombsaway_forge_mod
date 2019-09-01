@@ -10,7 +10,11 @@
     {
     	"s":
     	{
+<<<<<<< HEAD
     		"tag": "forge:ingots/iron"
+=======
+    		"tag": "forge:ingot/iron"
+>>>>>>> d82681819d0b2992a8f0aeee2f249b88cd5d6626
     	},
         "h":
         {
@@ -18,11 +22,19 @@
         },
         "u":
         {
+<<<<<<< HEAD
             "tag": "forge:ingots/uranium"
         },
         "p":
         {
             "tag": "forge:ingots/plutonium"
+=======
+            "tag": "forge:ingot/uranium"
+        },
+        "p":
+        {
+            "tag": "forge:ingot/plutonium"
+>>>>>>> d82681819d0b2992a8f0aeee2f249b88cd5d6626
         },
         "i":
         {

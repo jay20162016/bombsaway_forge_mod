@@ -18,6 +18,33 @@
     "death.attack.radioactivity": "%1$s died of radioactivity",
     "death.attack.radioactivity.player": "%1$s died of radioactivity while fighting %2$s",
     
+<<<<<<< HEAD
 	"effect.bombsaway.radiation": "Radiation",
 	"effect.bombsaway.radiation_sick": "Radiation Sickness"
+=======
+	"effect.bombsaway.radiation_weak": "Radiation (Weak)",
+	"effect.bombsaway.radiation_strong": "Radiation (Strong)",
+	"effect.bombsaway.radiation_ultra_strong": "Radiation (Ultra Strong)",
+	"effect.bombsaway.radiations_weak": "Radiation Sickness",
+	
+	"item.minecraft.potion.effect.radiation_weak": "Potion of Radioactivity (Weak)",
+	"item.minecraft.potion.effect.radiation_strong": "Potion of Radioactivity (Strong)",
+	"item.minecraft.potion.effect.radiation_ultrastrong": "Potion of Radioactivity (Ultra Strong)",
+	"item.minecraft.potion.effect.radiation_sick": "Potion of Radiation Sickness",
+	
+	"item.minecraft.splash_potion.effect.radiation_weak": "Splash Potion of Radioactivity (Weak)",
+	"item.minecraft.splash_potion.effect.radiation_strong": "Splash Potion of Radioactivity (Strong)",
+	"item.minecraft.splash_potion.effect.radiation_ultrastrong": "Splash Potion of Radioactivity (Ultra Strong)",
+	"item.minecraft.splash_potion.effect.radiation_sick": "Splash Potion of Radiation Sickness",
+	
+	"item.minecraft.lingering_potion.effect.radiation_weak": "Lingering Potion of Radioactivity (Weak)",
+	"item.minecraft.lingering_potion.effect.radiation_strong": "Lingering Potion of Radioactivity (Strong)",
+	"item.minecraft.lingering_potion.effect.radiation_ultrastrong": "Lingering Potion of Radioactivity (Ultra Strong)",
+	"item.minecraft.lingering_potion.effect.radiation_sick": "Lingering Potion of Radiation Sickness",
+	
+	"item.minecraft.tipped_arrow.effect.radiation_weak": "Arrow of Radioactivity (Weak)",
+	"item.minecraft.tipped_arrow.effect.radiation_strong": "Arrow of Radioactivity (Strong)",
+	"item.minecraft.tipped_arrow.effect.radiation_ultrastrong": "Arrow of Radioactivity (Ultra Strong)",
+	"item.minecraft.tipped_arrow.effect.radiation_sick": "Arrow of Radiation Sickness"
+>>>>>>> d82681819d0b2992a8f0aeee2f249b88cd5d6626
 }

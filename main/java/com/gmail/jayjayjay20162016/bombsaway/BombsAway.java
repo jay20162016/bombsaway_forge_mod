@@ -1,7 +1,10 @@
 package com.gmail.jayjayjay20162016.bombsaway;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
+=======
+>>>>>>> d82681819d0b2992a8f0aeee2f249b88cd5d6626
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -88,7 +91,11 @@ public class BombsAway {
 	private void clientRegistries(final FMLClientSetupEvent event) {
 
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> d82681819d0b2992a8f0aeee2f249b88cd5d6626
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegisterEvents {
 		@SubscribeEvent
@@ -110,9 +117,35 @@ public class BombsAway {
 		}
 
 		@SubscribeEvent
+<<<<<<< HEAD
 		public static void registerEffects(final RegistryEvent<Effect> event) {
 			((RegistryEvent.Register<Effect>) event).getRegistry().registerAll(
 					EffectList.radiation = new RadiationEffect().setRegistryName(location("radiation")),
+=======
+		public static void registerPotions(final RegistryEvent<Potion> event) {
+			((RegistryEvent.Register<Potion>) event).getRegistry().registerAll(
+					PotionList.radiationweak = new Potion("radiation_weak",
+							new EffectInstance(EffectList.radiationweak, 4000))
+									.setRegistryName(location("radiation_weak")),
+					PotionList.radiationstrong = new Potion("radiation_strong",
+							new EffectInstance(EffectList.radiationstrong, 8000))
+									.setRegistryName(location("radiation_strong")),
+					PotionList.radiationultrastrong = new Potion("radiation_ultrastrong",
+							new EffectInstance(EffectList.radiationultrastrong, 12000))
+									.setRegistryName(location("radiation_ultrastrong")),
+					PotionList.radiationsick = new Potion("radiation_sick",
+							new EffectInstance(EffectList.radiationsick, 4000))
+									.setRegistryName(location("radiation_sick")));
+		}
+
+		@SubscribeEvent
+		public static void registerEffects(final RegistryEvent<Effect> event) {
+			((RegistryEvent.Register<Effect>) event).getRegistry().registerAll(
+					EffectList.radiationweak = new RadiationEffect(1).setRegistryName(location("radiation_weak")),
+					EffectList.radiationstrong = new RadiationEffect(2).setRegistryName(location("radiation_strong")),
+					EffectList.radiationultrastrong = new RadiationEffect(4)
+							.setRegistryName(location("radiation_ultra_strong")),
+>>>>>>> d82681819d0b2992a8f0aeee2f249b88cd5d6626
 					EffectList.radiationsick = new RadiationSicknessEffect()
 							.setRegistryName(location("radiation_sick")));
 		}
