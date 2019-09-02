@@ -26,28 +26,29 @@ public class RadiationEffect extends Effect {
 
 	public RadiationEffect() {
 		super(EffectType.HARMFUL, 65280);
-		this.addAttributesModifier(SharedMonsterAttributes.MAX_HEALTH, "5D6F0BA2-1186-46AC-B896-C61C5CEE99CC", -8.0D,
-				AttributeModifier.Operation.ADDITION);
+//		this.addAttributesModifier(SharedMonsterAttributes.MAX_HEALTH, "5D6F0BA2-1186-46AC-B896-C61C5CEE99CC", -8.0D,
+//				AttributeModifier.Operation.ADDITION);
 	}
 
-	/// CRASHES ON MILK
+	/// CRASHES ON MILK (OR MAYBE NOT)
 	public List<ItemStack> getCurativeItems() {
 		return new ArrayList<ItemStack>();
 	}
 
 	public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
-		entityLivingBaseIn.attackEntityFrom(RADIOACTIVITY, amplifier / 2);
-		entityLivingBaseIn.addPotionEffect(new EffectInstance(Effects.HUNGER));
+		entityLivingBaseIn.attackEntityFrom(RADIOACTIVITY, (amplifier + 1) / 2);
+		entityLivingBaseIn.addPotionEffect(new EffectInstance(EffectList.radiationsick, (amplifier + 1) * 250000));
 	}
 
 	public void removeAttributesModifiersFromEntity(LivingEntity entityLivingBaseIn,
 			AbstractAttributeMap attributeMapIn, int amplifier) {
 		super.removeAttributesModifiersFromEntity(entityLivingBaseIn, attributeMapIn, amplifier);
-		if (entityLivingBaseIn instanceof PlayerEntity) {
-			PlayerEntity player = (PlayerEntity) entityLivingBaseIn;
-			player.addPotionEffect(new EffectInstance(EffectList.radiationsick, (amplifier + 1) * 250000));
-
-		}
+//		if (entityLivingBaseIn instanceof PlayerEntity) {
+//			PlayerEntity player = (PlayerEntity) entityLivingBaseIn;
+//			player.addPotionEffect(new EffectInstance(EffectList.radiationsick, (amplifier + 1) * 250000));
+//
+//		}
+//		entityLivingBaseIn.addPotionEffect(new EffectInstance(EffectList.radiationsick, (amplifier + 1) * 250000));
 	}
 
 	public void affectEntity(@Nullable Entity source, @Nullable Entity indirectSource, LivingEntity entityLivingBaseIn,

@@ -101,6 +101,7 @@ public class BombsAway {
 					ItemList.grenade = new ItemBomb(5, false, false).setRegistryName(location("grenade")));
 		}
 
+		@SubscribeEvent
 		public static void registerEffects(final RegistryEvent<Effect> event) {
 			((RegistryEvent.Register<Effect>) event).getRegistry().registerAll(
 					EffectList.radiation = new RadiationEffect().setRegistryName(location("radiation")),

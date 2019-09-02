@@ -27,7 +27,7 @@ public class RadiationSicknessEffect extends Effect {
 		entityLivingBaseIn.addPotionEffect(new EffectInstance(Effects.HUNGER));
 	}
 
-	/// DOESN'T CRASH ON MILK AND IS REMOVED BY MILK
+	/// DOESN'T CRASH ON MILK AND IS REMOVED BY MILK 
 	public List<ItemStack> getCurativeItems() {
 		return new ArrayList<ItemStack>();
 	}
