@@ -30,7 +30,7 @@ public class RadiationEffect extends Effect {
 //				AttributeModifier.Operation.ADDITION);
 	}
 
-	/// CRASHES ON MILK (OR MAYBE NOT)
+	/// IS REMOVED BY MILK 
 	public List<ItemStack> getCurativeItems() {
 		return new ArrayList<ItemStack>();
 	}
