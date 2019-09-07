@@ -7,6 +7,7 @@ import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.IPosition;
 import net.minecraft.dispenser.ProjectileDispenseBehavior;
 import net.minecraft.entity.IProjectile;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -15,6 +16,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingHealEvent;
+import net.minecraftforge.event.entity.living.PotionEvent.PotionRemoveEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -80,7 +83,26 @@ public class BombsAway {
 	private void clientRegistries(final FMLClientSetupEvent event) {
 
 	};
-
+	
+	// SHOULD BE REMOVED WITH entityLiving.clearActivePotions(); IN MILK
+	@Mod.EventBusSubscriber
+	public static class Events {
+		@SubscribeEvent
+		public static void preventCure(final PotionRemoveEvent event) {
+			if ( event.getPotion() instanceof RadiationEffect || event.getPotion() instanceof RadiationSicknessEffect ) {
+				event.setCanceled(true);
+			}
+		}
+		
+		@SubscribeEvent
+		public static void preventNaturalHealing(final LivingHealEvent event) {
+			LivingEntity entity = event.getEntityLiving();
+			if (entity.getActivePotionEffect(EffectList.radiationsick) != null) {
+				event.setCanceled(true);
+			}
+		}
+	}
+	
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegisterEvents {
 		@SubscribeEvent

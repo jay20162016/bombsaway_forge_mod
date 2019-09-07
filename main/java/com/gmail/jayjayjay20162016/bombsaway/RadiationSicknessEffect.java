@@ -22,12 +22,7 @@ public class RadiationSicknessEffect extends Effect {
 				AttributeModifier.Operation.ADDITION);
 
 	}
-
-	public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
-		entityLivingBaseIn.addPotionEffect(new EffectInstance(Effects.HUNGER));
-	}
-
-	/// IS REMOVED BY MILK 
+	
 	public List<ItemStack> getCurativeItems() {
 		return new ArrayList<ItemStack>();
 	}

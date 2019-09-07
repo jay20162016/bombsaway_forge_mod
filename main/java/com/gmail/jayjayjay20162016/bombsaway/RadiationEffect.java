@@ -30,14 +30,13 @@ public class RadiationEffect extends Effect {
 //				AttributeModifier.Operation.ADDITION);
 	}
 
-	/// IS REMOVED BY MILK 
 	public List<ItemStack> getCurativeItems() {
 		return new ArrayList<ItemStack>();
 	}
 
 	public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
-		entityLivingBaseIn.attackEntityFrom(RADIOACTIVITY, (amplifier + 1) / 2);
-		entityLivingBaseIn.addPotionEffect(new EffectInstance(EffectList.radiationsick, (amplifier + 1) * 250000));
+		entityLivingBaseIn.attackEntityFrom(RADIOACTIVITY, (amplifier + 2) / 2);
+		entityLivingBaseIn.addPotionEffect(new EffectInstance(EffectList.radiationsick, (amplifier + 1) * 250000, amplifier));
 	}
 
 	public void removeAttributesModifiersFromEntity(LivingEntity entityLivingBaseIn,
