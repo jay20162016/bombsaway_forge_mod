@@ -1,19 +1,32 @@
 package com.gmail.jayjayjay20162016.bombsaway;
 
 import net.minecraft.entity.AreaEffectCloudEntity;
-import net.minecraft.entity.EntityType;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.world.World;
 
-public class RadiationCloud extends AreaEffectCloudEntity {
-
-	public RadiationCloud(EntityType<? extends AreaEffectCloudEntity> p_i50389_1_, World p_i50389_2_) {
-		super(p_i50389_1_, p_i50389_2_);
-		// TODO Auto-generated constructor stub
-	}
-
-	public RadiationCloud(World worldIn, double x, double y, double z) {
-		super(worldIn, x, y, z);
-		// TODO Auto-generated constructor stub
+public class RadiationCloud {
+	public RadiationCloud(int maxamp, int minamp, float radius, World world, double x, double y, double z) {
+		assert maxamp>=minamp;
+		assert radius > 0;
+		for (int i = minamp; i <= maxamp; i++) {
+			if (i == minamp) {
+				NoVegetationCloud aecloud = new NoVegetationCloud(world, x, y, z);
+				aecloud.setRadius(radius/(maxamp - minamp + 1)*(i - minamp + 1));
+				aecloud.setRadiusOnUse(0F);
+				aecloud.setDuration(Integer.MAX_VALUE);
+				aecloud.setWaitTime(100);
+				aecloud.addEffect(new EffectInstance(EffectList.radiation));
+				
+			}
+			else {
+				AreaEffectCloudEntity aecloud = new AreaEffectCloudEntity(world, x, y, z);
+				aecloud.setRadius(radius/(maxamp - minamp + 1)*(i - minamp + 1));
+				aecloud.setRadiusOnUse(0F);
+				aecloud.setDuration(Integer.MAX_VALUE);
+				aecloud.setWaitTime(100);
+				aecloud.addEffect(new EffectInstance(EffectList.radiation));
+			}
+		}
 	}
 
 }

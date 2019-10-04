@@ -23,6 +23,10 @@ public class RadiationSicknessEffect extends Effect {
 
 	}
 	
+	public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
+		entityLivingBaseIn.addPotionEffect(new EffectInstance(Effects.HUNGER, 60, amplifier));
+	}
+	
 	public List<ItemStack> getCurativeItems() {
 		return new ArrayList<ItemStack>();
 	}
@@ -32,6 +36,15 @@ public class RadiationSicknessEffect extends Effect {
 		super.removeAttributesModifiersFromEntity(entityLivingBaseIn, attributeMapIn, amplifier);
 		if (entityLivingBaseIn instanceof PlayerEntity) {
 			PlayerEntity player = (PlayerEntity) entityLivingBaseIn;
+		}
+	}
+	
+	public boolean isReady(int duration, int amplifier) {
+		int i = 40 >> amplifier;
+		if (i > 0) {
+			return duration % i == 0;
+		} else {
+			return true;
 		}
 	}
 }

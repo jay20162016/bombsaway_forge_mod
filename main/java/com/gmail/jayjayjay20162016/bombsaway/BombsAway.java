@@ -6,6 +6,10 @@ import org.apache.logging.log4j.Logger;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.IPosition;
 import net.minecraft.dispenser.ProjectileDispenseBehavior;
+import net.minecraft.entity.AreaEffectCloudEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
@@ -16,6 +20,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.PotionEvent.PotionRemoveEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,7 +32,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 /*
  * 
  * TODO: ADD NUCLEAR EFFECT (WORKING ON THIS ONE)
- * remove milk as curative item
+ * TODO: SEPERATE BOMBSAWAY AND RADIATION AND ADD BOTH MODS TOGETHER
  * TODO: TWEAK VALUES
  * TODO: ADD RECIPES (I THINK THIS IS DONE HOWEVER IT IS NOT TESTED)
  */
@@ -83,17 +88,17 @@ public class BombsAway {
 	private void clientRegistries(final FMLClientSetupEvent event) {
 
 	};
-	
+
 	// SHOULD BE REMOVED WITH entityLiving.clearActivePotions(); IN MILK
 	@Mod.EventBusSubscriber
 	public static class Events {
 		@SubscribeEvent
 		public static void preventCure(final PotionRemoveEvent event) {
-			if ( event.getPotion() instanceof RadiationEffect || event.getPotion() instanceof RadiationSicknessEffect ) {
+			if (event.getPotion() instanceof RadiationEffect || event.getPotion() instanceof RadiationSicknessEffect) {
 				event.setCanceled(true);
 			}
 		}
-		
+
 		@SubscribeEvent
 		public static void preventNaturalHealing(final LivingHealEvent event) {
 			LivingEntity entity = event.getEntityLiving();
@@ -102,7 +107,7 @@ public class BombsAway {
 			}
 		}
 	}
-	
+
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 	public static class RegisterEvents {
 		@SubscribeEvent
@@ -129,6 +134,17 @@ public class BombsAway {
 					EffectList.radiation = new RadiationEffect().setRegistryName(location("radiation")),
 					EffectList.radiationsick = new RadiationSicknessEffect()
 							.setRegistryName(location("radiation_sick")));
+		}
+
+		@SubscribeEvent
+		public static void registerEntitys(final RegistryEvent<EntityType<?>> event) {
+			((Register<EntityType<?>>) event).getRegistry().registerAll(
+					EntityList.antivegetationcloud = EntityType.Builder
+							.<NoVegetationCloud>create(NoVegetationCloud::new, EntityClassification.MISC).immuneToFire()
+							.size(6.0F, 0.5F).build(BombsAway.modid + ".novegetationcloud").setRegistryName(location("novegetationcloud")),
+					EntityList.bomb_entity = EntityType.Builder
+							.<BombEntity>create(BombEntity::new, EntityClassification.MISC).size(1.0F, 1.0F)
+							.build(BombsAway.modid + ".bomb").setRegistryName(location("bomb")));
 		}
 
 		public static ResourceLocation location(String name) {
