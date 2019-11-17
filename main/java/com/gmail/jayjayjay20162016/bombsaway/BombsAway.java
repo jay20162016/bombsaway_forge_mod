@@ -6,8 +6,6 @@ import org.apache.logging.log4j.Logger;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.IPosition;
 import net.minecraft.dispenser.ProjectileDispenseBehavior;
-import net.minecraft.entity.AreaEffectCloudEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.IProjectile;
@@ -31,8 +29,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 /*
  * 
- * TODO: ADD NUCLEAR EFFECT (WORKING ON THIS ONE)
- * TODO: SEPERATE BOMBSAWAY AND RADIATION AND ADD BOTH MODS TOGETHER
+ * TODO: ADD NUCLEAR EFFECT (WORKING ON THIS ONE): WORK HALTED
+ * TODO: SEPERATE BOMBSAWAY AND RADIATION AND ADD BOTH MODS TOGETHER: WORK HALTED
  * TODO: TWEAK VALUES
  * TODO: ADD RECIPES (I THINK THIS IS DONE HOWEVER IT IS NOT TESTED)
  */
@@ -41,7 +39,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class BombsAway {
 	public static final String modid = "bombsaway";
 	public static BombsAway instance;
-	private static final Logger logger = LogManager.getLogger(modid);
+	public static final Logger logger = LogManager.getLogger(modid);
 	public static ItemGroup bombs = new BombItemGroup("bomb");
 
 	public BombsAway() {

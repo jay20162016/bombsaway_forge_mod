@@ -26,7 +26,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.placement.ChorusPlant;
 import net.minecraftforge.common.IPlantable;
 
 public class NoVegetationCloud extends AreaEffectCloudEntity {
@@ -41,21 +40,15 @@ public class NoVegetationCloud extends AreaEffectCloudEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	private boolean blockInTag(Block block, String tag) {
-		ResourceLocation myTagId = new ResourceLocation("forge", tag);
-		boolean isInGroup = BlockTags.getCollection().getOrCreate(myTagId).contains(block);
-		return isInGroup;
-	}
-
 	public void tick() {
 		super.tick();
 		Stream<BlockPos> box = BlockPos.getAllInBox((int) (this.posX - this.getRadius()), 0,
 				(int) (this.posZ - this.getRadius()), (int) (this.posX + this.getRadius()), 255,
 				(int) (this.posZ + this.getRadius()));
-		box.filter((BlockPos pos) -> (new BlockPos(pos.getX(), 0, pos.getZ()))
+		box = box.filter((BlockPos pos) -> (new BlockPos(pos.getX(), 0, pos.getZ()))
 				.distanceSq((new BlockPos(this.getPosition().getX(), 0, this.getPosition().getZ()))) < Math
 						.pow(this.getRadius(), 2));
-		BlockPos[] boxa = (BlockPos[]) box.toArray();
+		BlockPos[] boxa = (BlockPos[]) box.toArray(BlockPos[]::new);
 		for (BlockPos pos : boxa) {
 			// STILL HAVE SOME UNSOLVED CASES
 			// CRASHES ON SPAWN FROM /summon

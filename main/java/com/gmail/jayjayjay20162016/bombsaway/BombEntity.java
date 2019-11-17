@@ -112,7 +112,8 @@ public class BombEntity extends ProjectileItemEntity {
 			// @formatter:on
 			this.world.createExplosion(null, pos.x, pos.y, pos.z, this.power, this.fire, Explosion.Mode.DESTROY);
 			if (this.nuclear) {
-				
+				// TODO: Make radiation cloud work, work halted as of now
+//				RadiationCloud.createRadiationCloud((this.power - 50)/10, 0, this.power, world, pos.x, pos.y, pos.z);
 			}
 //			this.world.setBlockState(new BlockPos((int) pos.x, (int) pos.y, (int) pos.z),
 //					Blocks.OBSIDIAN.getDefaultState());
